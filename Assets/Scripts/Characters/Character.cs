@@ -1,16 +1,10 @@
+using Characters;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Character : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [FormerlySerializedAs("_abilitiesPositions")] [SerializeField] private CharacterImportantPositions importantPositions;
+    
+    public CharacterImportantPositions ImportantPositions => importantPositions;
 }

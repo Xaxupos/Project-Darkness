@@ -6,7 +6,11 @@ namespace Abilities
     {
         protected bool actionFinished = false;
         public bool IsActionFinished => actionFinished;
-        
-        public abstract void PerformAction(Character caster, Character target);
+
+        public virtual void PerformAction(Character caster, Character target)
+        {
+            Debug.Log($"Performing action {name} used by caster {caster.name} on target {target.name}");
+            actionFinished = false;
+        }
     }   
 }
