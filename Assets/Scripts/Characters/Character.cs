@@ -1,10 +1,13 @@
-using Characters;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class Character : MonoBehaviour
+namespace Characters
 {
-    [FormerlySerializedAs("_abilitiesPositions")] [SerializeField] private CharacterImportantPositions importantPositions;
+    public class Character : MonoBehaviour
+    {
+        [SerializeField] private CharacterImportantPositions _importantPositions;
+        [SerializeField] private CharacterAnimationController _animationController;
     
-    public CharacterImportantPositions ImportantPositions => importantPositions;
+        public CharacterImportantPositions ImportantPositions => _importantPositions;
+        public CharacterAnimationController AnimationController => _animationController;
+    }   
 }

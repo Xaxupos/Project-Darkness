@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 701070e1c8c393141969658c645607b0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151650
+  packageName: Melee Warrior Animations
+  packageVersion: 1.2
+  assetPath: Assets/Kevin Iglesias/Melee Warrior Animations/AnimatorControllers/2H/2H@WalkBackwardRight.controller
+  uploadId: 479347

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0bfec96b1a7eb8d409e977dfccbfbac4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151650
+  packageName: Melee Warrior Animations
+  packageVersion: 1.2
+  assetPath: Assets/Kevin Iglesias/Melee Warrior Animations/AnimatorControllers/1H/1H@RHParry.controller
+  uploadId: 479347

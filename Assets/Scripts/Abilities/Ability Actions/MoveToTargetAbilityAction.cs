@@ -1,3 +1,4 @@
+using Characters;
 using DG.Tweening;
 using UnityEngine;
 

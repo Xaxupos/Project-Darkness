@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Collections;
+using Characters;
 using UnityEngine;
 
 namespace Abilities
 {
-    [CreateAssetMenu(menuName = "Scriptable Objects/Abilities/New Ability", fileName = "New Ability")]
+    [CreateAssetMenu(menuName = "Scriptable Objects/Abilities/Ability", fileName = "Ability")]
     public class Ability : ScriptableObject
     {
         public string AbilityName;

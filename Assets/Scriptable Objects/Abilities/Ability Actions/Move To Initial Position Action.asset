@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd86540a88787034e8a6c2c88bef9437, type: 3}
   m_Name: Move To Initial Position Action
   m_EditorClassIdentifier: 
-  moveDuration: 1
+  _actionAnimationData: {fileID: 11400000, guid: cb020ebb734d65245a1bdd1acf8e2940, type: 2}
+  moveDuration: 2
   moveEase: 6
