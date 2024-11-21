@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _importantPositions: {fileID: 277284616575237309}
+  _abilityController: {fileID: 1262276254568160609}
   _animationController: {fileID: 6810457710467877066}
 --- !u!1 &5997836499189239982
 GameObject:
@@ -111,6 +112,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3080562593310217296}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7526922297654993129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2656887659468715740}
+  - component: {fileID: 1262276254568160609}
+  m_Layer: 0
+  m_Name: Character Ability Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2656887659468715740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526922297654993129}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6549539230424296981}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1262276254568160609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526922297654993129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090c630f3a566364a9fef14a89cbe250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 4660349230108203765}
+  Target: {fileID: 0}
 --- !u!1 &7716566844751849049
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +189,39 @@ Transform:
   m_Children:
   - {fileID: 3080562593310217296}
   - {fileID: 7396944315710735849}
+  - {fileID: 2656887659468715740}
   m_Father: {fileID: 8492874394456727067}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8540663829270249539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3127844291575002792}
+  m_Layer: 0
+  m_Name: Get Hit Particle Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3127844291575002792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8540663829270249539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.206, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3080562593310217296}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8811215042693984615
 GameObject:
@@ -200,7 +279,7 @@ GameObject:
   - component: {fileID: 3080562593310217296}
   - component: {fileID: 277284616575237309}
   m_Layer: 0
-  m_Name: Character Abilities Positions
+  m_Name: Character Important Positions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,6 +299,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3301767465775611223}
+  - {fileID: 3127844291575002792}
   m_Father: {fileID: 6549539230424296981}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &277284616575237309
@@ -234,12 +314,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d07617d6f20684c8776b934831e9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialFightPosition: {x: 0, y: 0, z: 0}
-  _abilitiesPositions:
+  initialFightPosition: {x: 0, y: 0, z: -0.15}
+  _importantPositions:
     serializedKvps:
-    - Key: {fileID: 11400000, guid: 9ac23532a4fea494f96bc12e283d94b9, type: 2}
+    - Key: 0
       Value: {fileID: 3301767465775611223}
       index: 0
+      isKeyRepeated: 0
+      isKeyNull: 0
+    - Key: 1
+      Value: {fileID: 3127844291575002792}
+      index: 1
       isKeyRepeated: 0
       isKeyNull: 0
     dividerPos: 0.33
@@ -298,13 +383,74 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3596748220834623885, guid: 917e00053cb499241a1d42e2b2716532, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8693278938664569195}
   m_SourcePrefab: {fileID: 100100000, guid: 917e00053cb499241a1d42e2b2716532, type: 3}
 --- !u!4 &781347339791477028 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1136994913350202544, guid: 917e00053cb499241a1d42e2b2716532, type: 3}
   m_PrefabInstance: {fileID: 364947277612948884}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3817569169180732441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3596748220834623885, guid: 917e00053cb499241a1d42e2b2716532, type: 3}
+  m_PrefabInstance: {fileID: 364947277612948884}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8693278938664569195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3817569169180732441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b147b23a5be432a428c4ac3961992ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationEvents:
+    serializedKvps:
+    - Key: 0
+      Value:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1262276254568160609}
+            m_TargetAssemblyTypeName: CharacterAbilityController, Assembly-CSharp
+            m_MethodName: PlayAnimationEventCasterEffects
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      index: 0
+      isKeyRepeated: 0
+      isKeyNull: 0
+    - Key: 1
+      Value:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1262276254568160609}
+            m_TargetAssemblyTypeName: CharacterAbilityController, Assembly-CSharp
+            m_MethodName: PlayAnimationEventTargetEffects
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      index: 1
+      isKeyRepeated: 0
+      isKeyNull: 0
+    dividerPos: 0.33
 --- !u!95 &7244980928473945002 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7033455320432561726, guid: 917e00053cb499241a1d42e2b2716532, type: 3}

@@ -8,18 +8,21 @@ namespace Abilities
     [CreateAssetMenu(menuName = "Scriptable Objects/Abilities/Ability", fileName = "Ability")]
     public class Ability : ScriptableObject
     {
+        [Header("Basic Info")]
         public string AbilityName;
+        
+        [Header("References")]
+        public AbilityAudioVisualData abilityAudioVisualData;
         public List<AbilityAction> AbilityActions;
 
         public void PerformAbility(Character caster, Character target)
         {
-            Debug.Log($"Performing Ability {AbilityName} used by caster {caster.name} on target {target.name}");
             caster.StartCoroutine(PerformAbilityCoroutine(caster,target));
         }
 
         public void EndAbility(Character caster, Character target)
         {
-            Debug.Log($"Ending Ability {AbilityName} used by caster {caster.name} on target {target.name}");
+            caster.AbilityController.ClearCurrentAbility();
         }
         
         private IEnumerator PerformAbilityCoroutine(Character caster, Character target)

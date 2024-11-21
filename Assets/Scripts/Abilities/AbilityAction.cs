@@ -1,6 +1,6 @@
 using System.Collections;
-using Characters;
 using UnityEngine;
+using Characters;
 using VInspector;
 
 namespace Abilities

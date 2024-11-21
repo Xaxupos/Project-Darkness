@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61708aa0f17bf340a9db7048e10a8be, type: 3}
+  m_Name: Melee Audio Visual
+  m_EditorClassIdentifier: 
+  InitialCastSounds: []
+  AnimationEventCasterSounds:
+  - {fileID: 8300000, guid: 31218d4f49d203a4085ff1d00a249d07, type: 3}
+  AnimationEventTargetSounds:
+  - {fileID: 8300000, guid: 60d4c692dba3b5144a3ae348aa8943da, type: 3}
+  InitialCasterParticles:
+    serializedKvps: []
+    dividerPos: 0.33
+  InitialTargetParticles:
+    serializedKvps: []
+    dividerPos: 0.33
+  AnimationEventCasterParticles:
+    serializedKvps:
+    - Key: 1
+      Value: {fileID: 7812585453298936649, guid: e70810f4f738da241bbf3f97ba541bd3, type: 3}
+      index: 0
+      isKeyRepeated: 0
+      isKeyNull: 0
+    dividerPos: 0.33
+  AnimationEventTargetParticles:
+    serializedKvps:
+    - Key: 1
+      Value: {fileID: 8211207519893372180, guid: edbcd3b3c18ccf44db5b7031741faf88, type: 3}
+      index: 0
+      isKeyRepeated: 0
+      isKeyNull: 0
+    dividerPos: 0.33

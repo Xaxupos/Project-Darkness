@@ -1,14 +1,12 @@
-using System;
 using UnityEngine;
 using VInspector;
-using Abilities;
 
 namespace Characters
 {
     public class CharacterImportantPositions : MonoBehaviour
     {
         [SerializeField] private Vector3 initialFightPosition;
-        [SerializeField] private SerializedDictionary<AbilityAction, Transform> _abilitiesPositions;
+        [SerializeField] private SerializedDictionary<ImportantPosition, Transform> _importantPositions;
 
         public Vector3 InitialFightPosition
         {
@@ -22,12 +20,12 @@ namespace Characters
             set { initialFightPosition = value; }
         }
 
-        public Transform GetPositionForAbilityAction(AbilityAction abilityAction)
+        public Vector3 GetDesiredPosition(ImportantPosition positionEnum)
         {
-            if (_abilitiesPositions.ContainsKey(abilityAction))
-                return _abilitiesPositions[abilityAction];
+            if (_importantPositions.ContainsKey(positionEnum))
+                return _importantPositions[positionEnum].position;
         
-            return null;
+            return Vector3.zero;
         }
 
         private void OnDrawGizmos()

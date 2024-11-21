@@ -10,10 +10,15 @@ namespace Characters
         {
             _animator.runtimeAnimatorController = controller;
         }
-    
-        public void PlayAnimation(AnimationClip clip)
+        
+        public void PlayAnimation(string animName)
         {
-            _animator.CrossFade(clip.name, 0);
+            _animator.CrossFade(animName, 0);
+        }
+        
+        public AnimatorStateInfo GetCurrentAnimatorStateInfo()
+        {
+            return _animator.GetCurrentAnimatorStateInfo(0);
         }
     }   
 }

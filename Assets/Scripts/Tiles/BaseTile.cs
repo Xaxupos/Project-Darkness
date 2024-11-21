@@ -1,5 +1,5 @@
-using Characters;
 using UnityEngine;
+using Characters;
 
 namespace Tiles
 {

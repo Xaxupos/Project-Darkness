@@ -1,6 +1,6 @@
-using Characters;
 using DG.Tweening;
 using UnityEngine;
+using Characters;
 
 namespace Abilities
 {
@@ -14,15 +14,15 @@ namespace Abilities
         {
             base.PerformAction(caster, target);
             
-            Transform destinationTransform = target.ImportantPositions.GetPositionForAbilityAction(this);
+            Vector3 destinatedPosition = target.ImportantPositions.GetDesiredPosition(ImportantPosition.ENEMY_MELEE_MOVE);
 
-            if (destinationTransform == null)
+            if (destinatedPosition == Vector3.zero)
             {
                 actionFinished = true;
                 return;
             }
             
-            caster.transform.DOMove(destinationTransform.position, moveDuration).SetEase(moveEase).OnComplete(() =>
+            caster.transform.DOMove(destinatedPosition, moveDuration).SetEase(moveEase).OnComplete(() =>
             {
                 actionFinished = true;
             });
