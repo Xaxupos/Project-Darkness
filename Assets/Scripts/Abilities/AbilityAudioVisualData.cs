@@ -8,7 +8,8 @@ namespace Abilities
     public class AbilityAudioVisualData : ScriptableObject
     {
         [Header("Audio")] 
-        public List<AudioClip> InitialCastSounds;
+        public List<AudioClip> InitialCastCasterSounds;
+        public List<AudioClip> InitialCastTargetSounds;
         public List<AudioClip> AnimationEventCasterSounds;
         public List<AudioClip> AnimationEventTargetSounds;
         

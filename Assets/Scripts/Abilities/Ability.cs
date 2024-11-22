@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using Characters;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Abilities
 {
@@ -12,7 +13,8 @@ namespace Abilities
         public string AbilityName;
         
         [Header("References")]
-        public AbilityAudioVisualData abilityAudioVisualData;
+        public AbilityEffectorsData AbilityEffectorsData;
+        public AbilityAudioVisualData AbilityAudioVisualData;
         public List<AbilityAction> AbilityActions;
 
         public void PerformAbility(Character caster, Character target)

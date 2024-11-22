@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Abilities Development Melee
   m_EditorClassIdentifier: 
   AbilityName: 
-  abilityAudioVisualData: {fileID: 11400000, guid: ccbc8de2d4379b545a94fc78bcae8e17, type: 2}
+  AbilityEffectorsData: {fileID: 11400000, guid: bec3000cd302a464ebad3c19819cc262, type: 2}
+  AbilityAudioVisualData: {fileID: 11400000, guid: ccbc8de2d4379b545a94fc78bcae8e17, type: 2}
   AbilityActions:
   - {fileID: 11400000, guid: 16499637f84f2004e976e2c3d2e5dba9, type: 2}
   - {fileID: 11400000, guid: 9ac23532a4fea494f96bc12e283d94b9, type: 2}

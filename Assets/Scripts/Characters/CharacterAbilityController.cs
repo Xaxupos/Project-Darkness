@@ -15,54 +15,75 @@ namespace Characters
         public Character Target;
         
         public Action<AbilityCastInfo> AbilityCasted;
+        public Action<AbilityCastInfo> AbilityEventCasterTriggered;
+        public Action<AbilityCastInfo> AbilityEventTargetTriggered;
         
-        private AbilityCastInfo _currentlyCastingAbility;
-        private Character _currentTarget;
+        private AbilityCastInfo _currentCastInfo;
 
         [Button]
         public void UseAbility(Ability ability)
         {
-            _currentTarget = Target;
-            
-            _currentlyCastingAbility = new AbilityCastInfo(ability, owner, _currentTarget);
+            //replace with target from target selector logics
+            _currentCastInfo = new AbilityCastInfo(ability, owner, Target);
             
             PlayInitialCastEffects();
-            ability.PerformAbility(owner, _currentTarget);
-            AbilityCasted?.Invoke(_currentlyCastingAbility);
+            ability.PerformAbility(_currentCastInfo.Caster, _currentCastInfo.Target);
+            AbilityCasted?.Invoke(_currentCastInfo);
         }
 
+        public AbilityCastInfo GetCurrentlyCastingAbility()
+        {
+            return _currentCastInfo;
+        }
+        
         public void PlayInitialCastEffects()
         {
-            if(_currentlyCastingAbility == null) return;
+            if(_currentCastInfo == null) return;
             
-            var abilityData = _currentlyCastingAbility.Ability.abilityAudioVisualData;
+            var audioVisualData = _currentCastInfo.Ability.AbilityAudioVisualData;
+            var effectorsData = _currentCastInfo.Ability.AbilityEffectorsData;
             
-            PlayAbilityAudioClips(owner, abilityData.InitialCastSounds);
+            PlayAbilityAudioClips(_currentCastInfo.Caster, audioVisualData.InitialCastCasterSounds);
+            PlayAbilityAudioClips(_currentCastInfo.Target, audioVisualData.InitialCastTargetSounds);
             
-            PlayParticlesAtProperPositions(owner, abilityData.InitialCasterParticles);
-            PlayParticlesAtProperPositions(_currentTarget, abilityData.InitialTargetParticles);
+            PlayParticlesAtProperPositions(_currentCastInfo.Caster, audioVisualData.InitialCasterParticles);
+            PlayParticlesAtProperPositions(_currentCastInfo.Target, audioVisualData.InitialTargetParticles);
+
+            PlayAbilityEffectors(effectorsData.InitialCastCasterEffectors);
+            PlayAbilityEffectors(effectorsData.InitialCastTargetEffectors);
         }
         
         public void PlayAnimationEventCasterEffects()
         {
-            if(_currentlyCastingAbility == null) return;
+            if(_currentCastInfo == null) return;
             
-            var abilityData = _currentlyCastingAbility.Ability.abilityAudioVisualData;
+            var audioVisualData = _currentCastInfo.Ability.AbilityAudioVisualData;
+            var effectorsData = _currentCastInfo.Ability.AbilityEffectorsData;
             
-            PlayAbilityAudioClips(owner, abilityData.AnimationEventCasterSounds);
+            PlayAbilityAudioClips(_currentCastInfo.Caster, audioVisualData.AnimationEventCasterSounds);
+            PlayParticlesAtProperPositions(_currentCastInfo.Caster, audioVisualData.AnimationEventCasterParticles);
             
-            PlayParticlesAtProperPositions(owner, abilityData.AnimationEventCasterParticles);
+            PlayAbilityEffectors(effectorsData.AnimationEventCasterEffectors);
+            AbilityEventCasterTriggered?.Invoke(_currentCastInfo);
         }
         
         public void PlayAnimationEventTargetEffects()
         {
-            if(_currentlyCastingAbility == null) return;
+            if(_currentCastInfo == null) return;
             
-            var abilityData = _currentlyCastingAbility.Ability.abilityAudioVisualData;
+            var audioVisualData = _currentCastInfo.Ability.AbilityAudioVisualData;
+            var effectorsData = _currentCastInfo.Ability.AbilityEffectorsData;
 
-            PlayAbilityAudioClips(_currentTarget, abilityData.AnimationEventTargetSounds);
-
-            PlayParticlesAtProperPositions(_currentTarget, abilityData.AnimationEventTargetParticles);
+            PlayAbilityAudioClips(_currentCastInfo.Target, audioVisualData.AnimationEventTargetSounds);
+            PlayParticlesAtProperPositions(_currentCastInfo.Target, audioVisualData.AnimationEventTargetParticles);
+            
+            PlayAbilityEffectors(effectorsData.AnimationEventTargetEffectors);
+            AbilityEventTargetTriggered?.Invoke(_currentCastInfo);
+        }
+        
+        public void ClearCurrentAbility()
+        {
+            _currentCastInfo = null;
         }
         
         private void PlayParticlesAtProperPositions(Character characterToPlayOn, SerializedDictionary<ImportantPosition, ParticleSystem> particlesDict)
@@ -86,10 +107,12 @@ namespace Characters
             }
         }
 
-        public void ClearCurrentAbility()
+        private void PlayAbilityEffectors(List<AbilityEffector> abilityEffectors)
         {
-            _currentlyCastingAbility = null;
-            _currentTarget = null;
+            foreach (var abilityEffect in abilityEffectors)
+            {
+                abilityEffect.ApplyEffector(_currentCastInfo.Caster, _currentCastInfo.Target);
+            }
         }
     }   
 }
