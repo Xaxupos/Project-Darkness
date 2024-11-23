@@ -19,19 +19,13 @@ public class CharacterStatistic
         this._currentValue = baseValue;
     }
 
-    public void SetBaseValue(float value)
-    {
-        _baseValue = value;
-        _currentValue = value;
-    }
-
-    public void SetMaxValue(float value)
-    {
-        _maxValue = value;
-    }
-
-    public void UpdateCurrentValue(float additionalAmount)
+    public void UpdateCurrentByValue(float additionalAmount)
     {
         _currentValue = Mathf.Clamp(_currentValue + additionalAmount, 0, _maxValue);
+    }
+
+    public void UpdateMaxByValue(float additionalAmount)
+    {
+        _maxValue += additionalAmount;
     }
 }

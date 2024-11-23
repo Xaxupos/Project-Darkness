@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4fd5faf73c51ff49b9922b7f16fe8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _statistics:
+    serializedKvps: []
+    dividerPos: 0.33
 --- !u!1 &5978325318234286751
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +96,7 @@ MonoBehaviour:
   _importantPositions: {fileID: 277284616575237309}
   _abilityController: {fileID: 1262276254568160609}
   _animationController: {fileID: 6810457710467877066}
+  _characterStatistics: {fileID: 3183988251367408079}
 --- !u!1 &5997836499189239982
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 16cd31000dae98b41b0cb5608ed7f203
+AudioImporter:
+  externalObjects: {}
+  serializedVersion: 6
+  defaultSettings:
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 44100
+    compressionFormat: 1
+    quality: 1
+    conversionMode: 0
+  platformSettingOverrides: {}
+  forceToMono: 0
+  normalize: 1
+  preloadAudioData: 1
+  loadInBackground: 0
+  ambisonic: 0
+  3D: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 221249
+  packageName: AAR Action RPG SFX Pack
+  packageVersion: 1.1
+  assetPath: Assets/Action_RPG_SFX/UI/Confirm 1_UI_Impact_02.wav
+  uploadId: 571387

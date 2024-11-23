@@ -12,21 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61708aa0f17bf340a9db7048e10a8be, type: 3}
   m_Name: Melee Audio Visual
   m_EditorClassIdentifier: 
-  InitialCastSounds: []
+  InitialCastCasterSounds:
+  - {fileID: 8300000, guid: 150314dbb8c511e4683f2e567d954ad6, type: 3}
+  InitialCastTargetSounds: []
   AnimationEventCasterSounds:
-  - {fileID: 8300000, guid: 31218d4f49d203a4085ff1d00a249d07, type: 3}
+  - {fileID: 8300000, guid: e4bd2b9f2efc0c544a777d132d35c973, type: 3}
   AnimationEventTargetSounds:
-  - {fileID: 8300000, guid: 60d4c692dba3b5144a3ae348aa8943da, type: 3}
+  - {fileID: 8300000, guid: f99d3fc278ff02d4abc55b5484963a31, type: 3}
   InitialCasterParticles:
-    serializedKvps: []
+    serializedKvps:
+    - Key: 1
+      Value: {fileID: 198057331819699378, guid: 6415f946f87d42f408f61c846221beb6, type: 3}
+      index: 0
+      isKeyRepeated: 0
+      isKeyNull: 0
     dividerPos: 0.33
   InitialTargetParticles:
     serializedKvps: []
     dividerPos: 0.33
   AnimationEventCasterParticles:
     serializedKvps:
-    - Key: 1
-      Value: {fileID: 7812585453298936649, guid: e70810f4f738da241bbf3f97ba541bd3, type: 3}
+    - Key: 0
+      Value: {fileID: 446330031280783707, guid: 48d47704b5fd74d49974a5f5be411926, type: 3}
       index: 0
       isKeyRepeated: 0
       isKeyNull: 0
@@ -34,7 +41,7 @@ MonoBehaviour:
   AnimationEventTargetParticles:
     serializedKvps:
     - Key: 1
-      Value: {fileID: 8211207519893372180, guid: edbcd3b3c18ccf44db5b7031741faf88, type: 3}
+      Value: {fileID: 2567784236978358139, guid: 6a19011a5473dcb45b0b386dfcb28670, type: 3}
       index: 0
       isKeyRepeated: 0
       isKeyNull: 0

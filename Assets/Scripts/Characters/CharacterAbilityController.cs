@@ -3,6 +3,7 @@ using UnityEngine;
 using VInspector;
 using Abilities;
 using System;
+using Items;
 
 namespace Characters
 {
@@ -13,6 +14,8 @@ namespace Characters
         
         [Header("Debug purposes")] 
         public Character Target;
+
+        [ReadOnly] [SerializeField] private List<SkillModifyingAffixData> _skillModifyingAffixDatas;
         
         public Action<AbilityCastInfo> AbilityCasted;
         public Action<AbilityCastInfo> AbilityEventCasterTriggered;
@@ -27,6 +30,15 @@ namespace Characters
             _currentCastInfo = new AbilityCastInfo(ability, owner, Target);
             
             PlayInitialCastEffects();
+
+            if (owner is Player)
+            {
+                foreach (var skillModifyingAffixData in _skillModifyingAffixDatas)
+                {
+                    skillModifyingAffixData.ApplySkillModificator(owner as Player, _currentCastInfo);
+                }   
+            }
+            
             ability.PerformAbility(_currentCastInfo.Caster, _currentCastInfo.Target);
             AbilityCasted?.Invoke(_currentCastInfo);
         }
@@ -81,9 +93,27 @@ namespace Characters
             AbilityEventTargetTriggered?.Invoke(_currentCastInfo);
         }
         
-        public void ClearCurrentAbility()
+        public void FinishCastingCurrentAbility()
         {
+            _currentCastInfo.OnCastFinished?.Invoke();
             _currentCastInfo = null;
+        }
+
+        public List<SkillModifyingAffixData> GetSkillModifyingAffixDatas()
+        {
+            return _skillModifyingAffixDatas;
+        }
+
+        public void AddSkilllyModifyingAffixData(SkillModifyingAffixData data)
+        {
+            if(!_skillModifyingAffixDatas.Contains(data))
+                _skillModifyingAffixDatas.Add(data);
+        }
+        
+        public void RemoveSkilllyModifyingAffixData(SkillModifyingAffixData data)
+        {
+            if(_skillModifyingAffixDatas.Contains(data))
+                _skillModifyingAffixDatas.Remove(data);
         }
         
         private void PlayParticlesAtProperPositions(Character characterToPlayOn, SerializedDictionary<ImportantPosition, ParticleSystem> particlesDict)

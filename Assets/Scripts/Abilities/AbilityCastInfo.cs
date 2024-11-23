@@ -1,4 +1,5 @@
 using Characters;
+using System;
 
 namespace Abilities
 {
@@ -8,6 +9,8 @@ namespace Abilities
         public Character Caster;
         public Character Target;
 
+        public Action OnCastFinished;
+        
         public AbilityCastInfo(Ability ability, Character caster, Character target)
         {
             this.Ability = ability;

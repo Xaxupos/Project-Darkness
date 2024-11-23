@@ -24,7 +24,7 @@ namespace Abilities
 
         public void EndAbility(Character caster, Character target)
         {
-            caster.AbilityController.ClearCurrentAbility();
+            caster.AbilityController.FinishCastingCurrentAbility();
         }
         
         private IEnumerator PerformAbilityCoroutine(Character caster, Character target)
