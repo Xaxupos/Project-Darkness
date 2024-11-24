@@ -1,23 +1,24 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using VInspector;
 
 namespace Characters
 {
     public class CharacterImportantPositions : MonoBehaviour
     {
-        [SerializeField] private Vector3 initialFightPosition;
+        [SerializeField] private Vector3 _initialFightPosition;
         [SerializeField] private SerializedDictionary<ImportantPosition, Transform> _importantPositions;
 
         public Vector3 InitialFightPosition
         {
             get
             {
-                if (initialFightPosition == Vector3.zero)
-                    initialFightPosition = transform.position;
+                if (_initialFightPosition == Vector3.zero)
+                    _initialFightPosition = transform.position;
                     
-                return initialFightPosition;
+                return _initialFightPosition;
             }
-            set { initialFightPosition = value; }
+            set { _initialFightPosition = value; }
         }
 
         public Vector3 GetDesiredPosition(ImportantPosition positionEnum)

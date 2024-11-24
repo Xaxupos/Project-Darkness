@@ -10,7 +10,7 @@ namespace Characters
     public class CharacterAbilityController : MonoBehaviour
     {
         [Header("References")] 
-        public Character owner;
+        [SerializeField] private Character _owner;
         
         [Header("Debug purposes")] 
         public Character Target;
@@ -27,25 +27,20 @@ namespace Characters
         public void UseAbility(Ability ability)
         {
             //replace with target from target selector logics
-            _currentCastInfo = new AbilityCastInfo(ability, owner, Target);
+            _currentCastInfo = new AbilityCastInfo(ability, _owner, Target);
             
             PlayInitialCastEffects();
 
-            if (owner is Player)
+            if (_owner is Player)
             {
                 foreach (var skillModifyingAffixData in _skillModifyingAffixDatas)
                 {
-                    skillModifyingAffixData.ApplySkillModificator(owner as Player, _currentCastInfo);
+                    skillModifyingAffixData.ApplySkillModificator(_owner as Player, _currentCastInfo);
                 }   
             }
             
             ability.PerformAbility(_currentCastInfo.Caster, _currentCastInfo.Target);
             AbilityCasted?.Invoke(_currentCastInfo);
-        }
-
-        public AbilityCastInfo GetCurrentlyCastingAbility()
-        {
-            return _currentCastInfo;
         }
         
         public void PlayInitialCastEffects()

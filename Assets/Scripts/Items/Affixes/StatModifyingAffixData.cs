@@ -6,7 +6,7 @@ namespace Items
     [CreateAssetMenu(fileName = "Stat Modifying Affix", menuName = "Scriptable Objects/Items/Affixes/Stat Modifying Affix")]
     public class StatModifyingAffixData : AffixData
     {
-        public bool OperateOnMaxStatValue = false;
+        public bool OperateOnMaxStatValue;
         public StatisticType StatType;
 
         public override void ApplyEffect(Player player, float value)

@@ -7,7 +7,7 @@ namespace Characters
     public class Player : Character
     {
         //just for debug purpose untill there is inventory system
-        [FormerlySerializedAs("playerItems")] public List<Item> playerEquippedItems;
+        public List<Item> playerEquippedItems;
         
         #region SingletonSetup
             private static Player _instance;
